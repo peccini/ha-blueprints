@@ -1,1 +1,38 @@
-
+blueprint:
+  name: Aqara E1 Wireless Remote Switch (Double Rocker)(WXKG17LM) via Xiaomi Gateway 3
+  description: Automate your Aqara E1 Wireless Remote Switch. [Working Feb 2023]
+  domain: automation
+  source_url: https://https://github.com/peccini/ha-blueprints/edit/main/xiaomi/wxkg17lm/wxkg17lm.yaml
+  input:
+    switch:
+      name: Aqara E1 Wireless Remote Switc
+      description: Select the _action entity of your switch here!
+      selector:
+        entity:
+          integration: xiaomi_gateway3
+          domain: sensor
+    remote_button_single_press_left:
+      name: Button Left Single
+      description: Action to run on single press left
+      default: []
+      selector:
+        action: {}
+    remote_button_single_press_right:
+      name: Button Left Right
+      description: Action to run on  single press right
+      default: []
+      selector:
+        action: {}
+trigger:
+- platform: event
+  event_type: state_changed
+  event_data:
+    entity_id: !input 'switch'
+action:
+- variables:
+    action: '{{ trigger.event.data.new_state.state }}'
+- choose:
+  - conditions: '{{ action == ''button_1_single'' }}'
+    sequence: !input 'remote_button_single_press_left'
+  - conditions: '{{ action == ''button_2_single'' }}'
+    sequence: !input 'remote_button_single_press_right'

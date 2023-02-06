@@ -12,7 +12,7 @@ blueprint:
           integration: xiaomi_gateway3
           domain: sensor
     remote_button_single_press:
-      name: Button Left Single
+      name: Button Single
       description: Action to run on single press
       default: []
       selector:

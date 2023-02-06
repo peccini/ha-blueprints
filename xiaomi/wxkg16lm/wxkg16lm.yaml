@@ -2,7 +2,7 @@ blueprint:
   name: Aqara E1 Wireless Remote Switch (Single Rocker)(WXKG16LM) via Xiaomi Gateway 3
   description: Automate your Aqara E1 Wireless Remote Switch. [Working Feb 2023]
   domain: automation
-  source_url: https://https://github.com/peccini/ha-blueprints/edit/main/xiaomi/wxkg17lm/wxkg16lm.yaml
+  source_url: https://https://github.com/peccini/ha-blueprints/edit/main/xiaomi/wxkg16lm/wxkg16lm.yaml
   input:
     switch:
       name: Aqara E1 Wireless Remote Switc
